@@ -91,12 +91,12 @@ FROM clientes INNER JOIN facturas_clientes ON facturas_clientes.cliente_id = cli
 INNER JOIN facturas ON facturas_clientes.factura_num = facturas.num_factura 
 ORDER BY facturas.precio_total DESC LIMIT (1);
 
-
+-- clientes que pagaron sobre 100
 SELECT clientes.nombre,facturas.precio_total
 FROM clientes INNER JOIN facturas_clientes ON facturas_clientes.cliente_id = clientes.id 
 INNER JOIN facturas ON facturas_clientes.factura_num = facturas.num_factura 
 WHERE facturas.precio_total > 100;
-
+-- cuantos clientes que compraron el producto 6 
 SELECT COUNT(DISTINCT clientes.id)
 FROM lista_factura JOIN facturas ON lista_factura.factura_num = facturas.num_factura
 JOIN facturas_clientes ON facturas_clientes.factura_num = facturas.num_factura 
